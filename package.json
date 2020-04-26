@@ -1,0 +1,48 @@
+{
+  "name": "performance-analysis-app",
+  "version": "1.0.0",
+  "description": "Performance benchmarking - postgresql vs mysql",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.ts",
+    "db:drop": "npm run typeorm:cli schema:drop",
+    "db:sync": "npm run typeorm:cli schema:sync",
+    "migration:generate": "typeorm migration:create -n",
+    "debug": "nodemon --watch ./dist --inspect=0.0.0.0:5001 --nolazy ./dist/index.js",
+    "start": "node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.8.1",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.15",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.1",
+    "pg": "^7.17.1",
+    "sleep": "^6.1.0",
+    "typeorm": "^0.2.22",
+    "uuid": "^7.0.3",
+    "uuidv4": "^6.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.37",
+    "@types/sleep": "0.0.7",
+    "ts-node": "^8.5.4",
+    "ts-sinon": "^1.0.24",
+    "tslint": "^5.20.1",
+    "tslint-clean-code": "^0.2.10",
+    "tslint-config-standard": "^9.0.0",
+    "tslint-consistent-codestyle": "^1.16.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.7.2"
+  }
+}
